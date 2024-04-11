@@ -6,6 +6,30 @@ document.getElementById("current-date").innerHTML = "📆" + current_date;
 
 //-------------------------------------------
 
+let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+let day_number = date_obj.getDay();
+
+
+let count = day_number + 1;
+let j = 0;
+let temp_ar = [];
+while (true) {
+    if (count == 7) {
+        count = 0;
+    }
+    else if (count == day_number) {
+        break;
+    }
+    temp_ar.push(days[count++]);
+}
+document.getElementById("forcast-d1").innerHTML = temp_ar[0];
+document.getElementById("forcast-d2").innerHTML = temp_ar[1];
+document.getElementById("forcast-d3").innerHTML = temp_ar[2];
+document.getElementById("forcast-d4").innerHTML = temp_ar[3];
+document.getElementById("forcast-d5").innerHTML = temp_ar[4];
+document.getElementById("forcast-d6").innerHTML = temp_ar[5];
+
+
 findWeather();
 
 function findWeather() {
@@ -26,6 +50,11 @@ function findWeather() {
             document.getElementById("humidity").innerHTML = "💦 humidity - " + values.current.humidity + "%";
             document.getElementById("feels-like").innerHTML = "🌡️ Feels like - " + values.current.feelslike_c + "°C";
             document.getElementById("visibility").innerHTML = "🔎 Visibility - " + values.current.vis_km + "km";
+
+            let temp_image = values.current.condition.icon;
+
+            let  image= document.getElementById("main-card-temp-img");
+            image.src = temp_image;
 
         })
 
