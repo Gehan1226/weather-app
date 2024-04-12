@@ -1,8 +1,33 @@
 body {
-    background-color: #02121b;
+    /* background: linear-gradient(115deg, #1d58d7, #000000); */
+    color: #224;
+    background:
+        url(https://th.bing.com/th/id/R.0bee785a42c7c4a641a4fa840f051fcb?rik=pa7dR%2faTDaZyFw&riu=http%3a%2f%2fwww.baltana.com%2ffiles%2fwallpapers-25%2fNature-Minimalist-Wallpaper-1920x1080-64724.jpg&ehk=C4jv4bXKpYsTpqqx3NoPKvh1J3wCs8cStTotrJwcjgg%3d&risl=&pid=ImgRaw&r=0) center / cover no-repeat fixed;
+
+
 }
 
 #main-card {
-    background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/c44d1498-1c89-4141-bf98-d14781623673/d4cob1u-df0bc533-f3f4-489a-9aa7-87c1831faf92.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2M0NGQxNDk4LTFjODktNDE0MS1iZjk4LWQxNDc4MTYyMzY3M1wvZDRjb2IxdS1kZjBiYzUzMy1mM2Y0LTQ4OWEtOWFhNy04N2MxODMxZmFmOTIucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.a6R87Ex85qavDFhOZdyKnLMpQyKKiKZwUhbfO9glC48");
-    background-size: cover;
+    border: 1px solid rgba(16, 13, 13, 0.25);
+    border-radius: 20px;
+    background-color: rgba(218, 203, 203, 0.45);
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
+
+    backdrop-filter: blur(15px);
+}
+
+
+.mini{
+    border: 1px solid rgba(16, 13, 13, 0.25);
+    border-radius: 20px;
+    background-color: rgba(96, 91, 91, 0.45);
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(15px);
+
+    min-width: 150px;
+    color: white;
+}
+
+#title-forcast{
+    color: white;
 }

@@ -22,13 +22,20 @@ while (true) {
     }
     temp_ar.push(days[count++]);
 }
-document.getElementById("forcast-d1").innerHTML = temp_ar[0];
-document.getElementById("forcast-d2").innerHTML = temp_ar[1];
-document.getElementById("forcast-d3").innerHTML = temp_ar[2];
-document.getElementById("forcast-d4").innerHTML = temp_ar[3];
-document.getElementById("forcast-d5").innerHTML = temp_ar[4];
-document.getElementById("forcast-d6").innerHTML = temp_ar[5];
+let dayNumbers = [];
 
+for (let i = 0; i < 7; i++) {
+    date_obj.setDate(date_obj.getDate() + 1); // Add one day
+    dayNumbers.push(date_obj.getDate());
+}
+
+document.getElementById("forcast-d1").innerHTML = temp_ar[0] + " " + dayNumbers[0];
+document.getElementById("forcast-d2").innerHTML = temp_ar[1] + " " + dayNumbers[1];
+document.getElementById("forcast-d3").innerHTML = temp_ar[2] + " " + dayNumbers[2];
+
+
+let f_values = [];
+let c_values = [];
 
 findWeather();
 
@@ -40,7 +47,7 @@ function findWeather() {
     }
     document.getElementById("txt-location").value = "";
 
-    fetch("http://api.weatherapi.com/v1/forecast.json?key=d6a82ac288ee483387743658241104&q=" + location + "&days=7&aqi=no&alerts=no")
+    fetch("http://api.weatherapi.com/v1/forecast.json?key=9f2a2a57edc4446087b63913241204&q=" + location + "&days=7&aqi=no&alerts=no")
         .then((res) => res.json())
         .then((values) => {
             document.getElementById("location-name").innerHTML = "📍" + values.location.name;
@@ -53,8 +60,30 @@ function findWeather() {
 
             let temp_image = values.current.condition.icon;
 
-            let  image= document.getElementById("main-card-temp-img");
+            let image = document.getElementById("main-card-temp-img");
             image.src = temp_image;
+
+            c_values.push(values.current.temp_c);
+            f_values.push(values.current.temp_f);
+
+            for (let i = 0; i < 3; i++) {
+                let max_temp = values.forecast.forecastday[i].day.maxtemp_c;
+                let min_temp = values.forecast.forecastday[i].day.mintemp_c;
+
+                c_values.push(max_temp);
+                c_values.push(min_temp);
+                f_values.push(values.forecast.forecastday[i].day.maxtemp_f);
+                f_values.push(values.forecast.forecastday[i].day.mintemp_f);
+
+                switch (i) {
+                    case 0: document.getElementById("forcast-temp-d1").innerHTML = max_temp + " - " + min_temp; break;
+                    case 1: document.getElementById("forcast-temp-d2").innerHTML = max_temp + " - " + min_temp; break;
+                    case 2: document.getElementById("forcast-temp-d3").innerHTML = max_temp + " - " + min_temp; break;
+                    case 3: document.getElementById("forcast-temp-d4").innerHTML = max_temp + " - " + min_temp; break;
+                    case 4: document.getElementById("forcast-temp-d5").innerHTML = max_temp + " - " + min_temp; break;
+                    case 5: document.getElementById("forcast-temp-d6").innerHTML = max_temp + " - " + min_temp; break;
+                }
+            }
 
         })
 
