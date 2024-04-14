@@ -50,7 +50,7 @@ function findWeather() {
   }
   document.getElementById("txt-location").value = "";
 
-  fetch("http://api.weatherapi.com/v1/forecast.json?key=9f2a2a57edc4446087b63913241204&q=" + location + "&days=7&aqi=no&alerts=no")
+  fetch("https://api.weatherapi.com/v1/forecast.json?key=9f2a2a57edc4446087b63913241204&q=" + location + "&days=7&aqi=no&alerts=no")
     .then((res) => res.json())
     .then((values) => {
       document.getElementById("location-name").innerHTML = "📍" + values.location.name;
