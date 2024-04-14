@@ -13,15 +13,15 @@ let day_number = date_obj.getDay();
 let count = day_number + 1;
 let j = 0;
 let temp_ar = [];
-while (true) {
-    if (count == 7) {
-        count = 0;
-    }
-    else if (count == day_number) {
-        break;
-    }
-    temp_ar.push(days[count++]);
-}
+// while (true) {
+//     if (count == 7) {
+//         count = 0;
+//     }
+//     else if (count == day_number) {
+//         break;
+//     }
+//     temp_ar.push(days[count++]);
+// }
 let dayNumbers = [];
 
 for (let i = 0; i < 7; i++) {
@@ -29,13 +29,15 @@ for (let i = 0; i < 7; i++) {
     dayNumbers.push(date_obj.getDate());
 }
 
-document.getElementById("forcast-d1").innerHTML = temp_ar[0] + " " + dayNumbers[0];
-document.getElementById("forcast-d2").innerHTML = temp_ar[1] + " " + dayNumbers[1];
-document.getElementById("forcast-d3").innerHTML = temp_ar[2] + " " + dayNumbers[2];
+// document.getElementById("forcast-d1").innerHTML = temp_ar[0] + " " + dayNumbers[0];
+// document.getElementById("forcast-d2").innerHTML = temp_ar[1] + " " + dayNumbers[1];
+// document.getElementById("forcast-d3").innerHTML = temp_ar[2] + " " + dayNumbers[2];
 
 
 let f_values = [];
 let c_values = [];
+
+let current_weather = [];
 
 findWeather();
 
@@ -66,24 +68,42 @@ function findWeather() {
             c_values.push(values.current.temp_c);
             f_values.push(values.current.temp_f);
 
-            for (let i = 0; i < 3; i++) {
-                let max_temp = values.forecast.forecastday[i].day.maxtemp_c;
-                let min_temp = values.forecast.forecastday[i].day.mintemp_c;
 
-                c_values.push(max_temp);
-                c_values.push(min_temp);
-                f_values.push(values.forecast.forecastday[i].day.maxtemp_f);
-                f_values.push(values.forecast.forecastday[i].day.mintemp_f);
 
-                switch (i) {
-                    case 0: document.getElementById("forcast-temp-d1").innerHTML = max_temp + " - " + min_temp; break;
-                    case 1: document.getElementById("forcast-temp-d2").innerHTML = max_temp + " - " + min_temp; break;
-                    case 2: document.getElementById("forcast-temp-d3").innerHTML = max_temp + " - " + min_temp; break;
-                    case 3: document.getElementById("forcast-temp-d4").innerHTML = max_temp + " - " + min_temp; break;
-                    case 4: document.getElementById("forcast-temp-d5").innerHTML = max_temp + " - " + min_temp; break;
-                    case 5: document.getElementById("forcast-temp-d6").innerHTML = max_temp + " - " + min_temp; break;
-                }
-            }
+            // for (let i = 0; i < 24; i++) {
+            //     let datetime = values.forecast.forecastday[0].hour[i].time;
+
+            //     let dateObject = new Date(datetime);
+            //     let time = dateObject.toLocaleTimeString();
+
+
+            //     if (time == "6:00:00 AM" || time == "9:00:00 AM" || time == "12:00:00 PM" || time == "3:00:00 PM" || time == "6:00:00 PM" || time == "9:00:00 PM") {
+            //         current_weather.push(values.forecast.forecastday[0].hour[i].temp_c)
+
+            //     }
+            // }
+
+
+            // for (let i = 0; i < 3; i++) {
+
+
+            //     let max_temp = values.forecast.forecastday[i].day.maxtemp_c;
+            //     let min_temp = values.forecast.forecastday[i].day.mintemp_c;
+
+            //     c_values.push(max_temp);
+            //     c_values.push(min_temp);
+            //     f_values.push(values.forecast.forecastday[i].day.maxtemp_f);
+            //     f_values.push(values.forecast.forecastday[i].day.mintemp_f);
+
+            //     switch (i) {
+            //         case 0: document.getElementById("forcast-temp-d1").innerHTML = max_temp + " - " + min_temp; break;
+            //         case 1: document.getElementById("forcast-temp-d2").innerHTML = max_temp + " - " + min_temp; break;
+            //         case 2: document.getElementById("forcast-temp-d3").innerHTML = max_temp + " - " + min_temp; break;
+            //         case 3: document.getElementById("forcast-temp-d4").innerHTML = max_temp + " - " + min_temp; break;
+            //         case 4: document.getElementById("forcast-temp-d5").innerHTML = max_temp + " - " + min_temp; break;
+            //         case 5: document.getElementById("forcast-temp-d6").innerHTML = max_temp + " - " + min_temp; break;
+            //     }
+            // }
 
         })
 
@@ -91,8 +111,10 @@ function findWeather() {
     let iframe = document.getElementById('myMap');
     iframe.src = mapUrl;
 
-
+    
 }
+
+
 
 
 
