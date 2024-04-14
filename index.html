@@ -64,12 +64,12 @@
         <div class="row mt-5">
 
             <div class="col col-sm-12 col-lg-3 mb-3">
-                <div  id="main-card">
+                <div id="main-card"style="min-height: 290px;">
                     <div class="card-body text-center ">
                         <div class="block mx-auto">
                             <div class="box">
                                 <p class="number">
-                                    <span class="num">10</span>
+                                    <span class="num" id="circle-humidity">100</span>
                                     <span class="sub">%</span>
                                 </p>
                                 <p class="title">Humidity</p>
@@ -85,28 +85,45 @@
                                 <circle class="circle" cx="90" cy="90" r="80" />
                             </svg>
                         </div>
-                        
-                        <h6>Humidity : 100%</h6>
-                        <h6>Presure : 1000 mb</h6>
-                        <h6>Feels Like : 7.9 c</h6>
-                        <h6>Visibility : 10.0 km</h6>
-                        
+
+                        <h6 id="card2-presure">Presure : 1000 mb</h6>
+                        <h6 id="card2-fl">Feels Like : 7.9 c</h6>
+                        <h6 id="card2-visibility">Visibility : 10.0 km</h6>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col col-sm-12 col-lg-3 mb-3">
+                <div id="main-card" style="min-height: 290px;">
+                    <div class="card-body text-center">
+                        <img src="asset/images/wind-turbine-ezgif.com-gif-maker.gif" width="150px" alt="" srcset="">
+                        <h6 id="card3-wind-speed">Wind Speed : 5.6 kph</h6>
+                        <h6 id="card3-wind-degree">wind Degree : 260</h6>
+                        <h6 id="card3-wind-direction">wind Direction : W</h6>
+                        <h6 id="card3-cloud">Cloud : 100</h6>
                     </div>
                 </div>
             </div>
 
-            <div class="col col-sm-12 col-lg-3 mb-3">
-                <div  id="main-card"  style="min-height: 290px;">
-                    <div class="card-body text-center">
-                        <img src="asset/images/wind-turbine-ezgif.com-gif-maker.gif" width="150px" alt="" srcset="">
-                        <h6>Wind Speed : 5.6 kph</h6>
-                        <h6>wind Degree : 260</h6>
-                        <h6>wind Direction : W</h6>
-                        <h6>Cloud : 100</h6>
-                        
+            <div class="col col-sm-12 col-lg-6 mb-3">
+                <div id="main-card" style="min-height: 290px;">
+                    <div class="d-flex justify-content-around mt-5">
+                        <img src="asset/images/sun-shine-bg.png" width="150px" alt="" srcset="">
+                        <img src="asset/images/sun-rise.png" width="150px" alt="" srcset="">
                     </div>
+                    <div class="d-flex justify-content-around ">
+                        <h5 id="sun-rise">Sunrise : 07:00 a.m</h5>
+                        <h5 id="sun-set">Sunset : 19:00 p.m</h5>
+                    </div>
+
                 </div>
             </div>
+
+
+        </div>
+        <div class="row">
 
             <div class="col col-lg-6">
                 <div style="min-width: 250px;" id="card-forcast">
@@ -175,6 +192,11 @@
 
 
         </div>
+
+
+
+
+    </div>
     </div>
 
     <script src="asset/app.js"></script>
