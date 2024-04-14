@@ -38,7 +38,8 @@
 
                         <div class="d-flex align-content-between flex-wrap"><img
                                 src="https://cdn3.iconfinder.com/data/icons/weather-ios-11-1/50/Partly_Cloudy_Cloudy_Sun_Cloud_Nebulosity_Apple_Weather-1024.png"
-                                alt="" class="float-start" id="main-card-temp-img" style="max-width: 300px; min-width: 100px;">
+                                alt="" class="float-start" id="main-card-temp-img"
+                                style="max-width: 300px; min-width: 100px;">
                             <p class="display-5 my-3 ms-2 " id="current-temp">20°C</p>
                         </div>
                         <p class="fs-4 fw-bold" id="temp-status">partly cloud</p>
@@ -55,15 +56,59 @@
             </div>
 
             <div class="col col-lg-6 col-sm-12 col-md-12 text-center">
-                <iframe id="myMap"  frameborder="0"
-                    style="border:0;"></iframe>
+                <iframe id="myMap" frameborder="0" style="border:0;"></iframe>
             </div>
 
         </div>
 
         <div class="row mt-5">
 
-            <div class="col col-lg-6 ">
+            <div class="col col-sm-12 col-lg-3 mb-3">
+                <div  id="main-card">
+                    <div class="card-body text-center ">
+                        <div class="block mx-auto">
+                            <div class="box">
+                                <p class="number">
+                                    <span class="num">10</span>
+                                    <span class="sub">%</span>
+                                </p>
+                                <p class="title">Humidity</p>
+                            </div>
+                            <span class="dots"></span>
+                            <svg class="svg">
+                                <defs>
+                                    <linearGradient id="gradientStyle">
+                                        <stop offset="0%" stop-color="#565656" />
+                                        <stop offset="100%" stop-color="#b7b5b5" />
+                                    </linearGradient>
+                                </defs>
+                                <circle class="circle" cx="90" cy="90" r="80" />
+                            </svg>
+                        </div>
+                        
+                        <h6>Humidity : 100%</h6>
+                        <h6>Presure : 1000 mb</h6>
+                        <h6>Feels Like : 7.9 c</h6>
+                        <h6>Visibility : 10.0 km</h6>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <div class="col col-sm-12 col-lg-3 mb-3">
+                <div  id="main-card"  style="min-height: 290px;">
+                    <div class="card-body text-center">
+                        <img src="asset/images/wind-turbine-ezgif.com-gif-maker.gif" width="150px" alt="" srcset="">
+                        <h6>Wind Speed : 5.6 kph</h6>
+                        <h6>wind Degree : 260</h6>
+                        <h6>wind Direction : W</h6>
+                        <h6>Cloud : 100</h6>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <div class="col col-lg-6">
                 <div style="min-width: 250px;" id="card-forcast">
 
                     <div class="card-body text-center">
