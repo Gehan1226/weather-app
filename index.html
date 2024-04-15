@@ -12,17 +12,48 @@
 </head>
 
 <body>
-    <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
 
-        <div class="row">
-            <form class="d-flex w-50 mx-auto m-3" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
-                    id="txt-location">
+            <a class="navbar-brand" id="nav-title">
+                <img src="https://gianlucajahn.github.io/macOS-react/static/media/weather.abe0acb3af71737fd504.png"
+                    alt="Logo" width="40px" class="d-inline-block align-text-top">
+                Weather Application
+            </a>
 
-                <button type="button" class="btn btn-outline-success " onclick="findWeather()">Search</button>
-            </form>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+                aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarScroll">
+
+                <form class="d-flex w-75 ms-5" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search city" aria-label="Search"
+                        id="txt-location">
+                    <button type="button" class="btn btn-outline-success "
+                        onclick="findCurrentWeather()">Search</button>
+                </form>
+
+                <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll ms-2" style="--bs-scroll-height: 100px;">
+
+                    <li class="nav-item dropdown  ">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Change type
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="#" onclick="allToCelsius()">Celsius</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="allToFahrenheit()">Fahrenheit</a></li>
+
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
         </div>
-
+    </nav>
+    <div class="container">
         <div class="row mt-5">
 
             <div class="col col-md-12 col-lg-6 col-sm-12 mx-auto mb-5">
@@ -32,23 +63,21 @@
                     <div class="card-body">
 
                         <div class="d-flex mb-3">
-                            <h5 class="card-title" id="location-name">Location</h5>
+                            <h5 class="card-title mt-2" id="location-name">Location</h5>
                             <div class="ms-auto p-2" id="current-date">Date</div>
                         </div>
 
-                        <div class="d-flex align-content-between flex-wrap"><img
-                                src="https://cdn3.iconfinder.com/data/icons/weather-ios-11-1/50/Partly_Cloudy_Cloudy_Sun_Cloud_Nebulosity_Apple_Weather-1024.png"
-                                alt="" class="float-start" id="main-card-temp-img"
-                                style="max-width: 300px; min-width: 100px;">
+                        <div class="d-flex align-content-between flex-wrap"><img src="https://cdn2.iconfinder.com/data/icons/weather-flat-14/64/weather02-1024.png" alt="" class="float-start"
+                                id="main-card-temp-img" >
                             <p class="display-5 my-3 ms-2 " id="current-temp">20°C</p>
                         </div>
-                        <p class="fs-4 fw-bold" id="temp-status">partly cloud</p>
+                        <p class="fs-4 " id="temp-status">partly cloud</p>
 
 
-                        <h6 class="mt-4 ms-2 fw-bolder " id="wind">wind - <strong>3 km/h</strong></h6>
-                        <h6 class="mt-2 ms-2 fw-bolder " id="humidity">Humidity - <strong>95%</strong> </h6>
-                        <h6 class="mt-2 ms-2 fw-bolder " id="feels-like">Feels like - <strong>29</strong> </h6>
-                        <h6 class="mt-2 ms-2 fw-bolder" id="visibility">Visibility - <strong> 9 km</strong></h6>
+                        <h6 class="mt-4 ms-2 " id="wind">wind - <strong>3 km/h</strong></h6>
+                        <h6 class="mt-2 ms-2 " id="humidity">Humidity - <strong>95%</strong> </h6>
+                        <h6 class="mt-2 ms-2 " id="feels-like">Feels like - <strong>29</strong> </h6>
+                        <h6 class="mt-2 ms-2 " id="visibility">Visibility - <strong> 9 km</strong></h6>
 
                     </div>
                 </div>
@@ -61,10 +90,10 @@
 
         </div>
 
-        <div class="row mt-5">
+        <div class="row mt-3">
 
             <div class="col col-sm-12 col-lg-3 mb-3">
-                <div id="main-card"style="min-height: 290px;">
+                <div class="sub-card">
                     <div class="card-body text-center ">
                         <div class="block mx-auto">
                             <div class="box">
@@ -96,7 +125,7 @@
             </div>
 
             <div class="col col-sm-12 col-lg-3 mb-3">
-                <div id="main-card" style="min-height: 290px;">
+                <div class="sub-card">
                     <div class="card-body text-center">
                         <img src="asset/images/wind-turbine-ezgif.com-gif-maker.gif" width="150px" alt="" srcset="">
                         <h6 id="card3-wind-speed">Wind Speed : 5.6 kph</h6>
@@ -108,16 +137,21 @@
             </div>
 
             <div class="col col-sm-12 col-lg-6 mb-3">
-                <div id="main-card" style="min-height: 290px;">
+                <div class="sub-card">
                     <div class="d-flex justify-content-around mt-5">
-                        <img src="asset/images/sun-shine-bg.png" width="150px" alt="" srcset="">
-                        <img src="asset/images/sun-rise.png" width="150px" alt="" srcset="">
+                        <img class="img-sun" src="asset/images/sun-shine-bg.png" alt="" srcset="">
+                        <img class="img-sun" src="asset/images/sun-rise.png" alt="" srcset="">
                     </div>
-                    <div class="d-flex justify-content-around ">
-                        <h5 id="sun-rise">Sunrise : 07:00 a.m</h5>
-                        <h5 id="sun-set">Sunset : 19:00 p.m</h5>
+                    <div class="d-flex justify-content-around fs-6 text-center">
+                        <p class="ms-3" id="sun-rise">Sunrise : 07:00 a.m</p>
+                        <p class="ms-5" id="sun-set">Sunset : 19:00 p.m
+                        <p>
                     </div>
-
+                    <div class="d-flex justify-content-around fs-6 text-center">
+                        <p class="ms-3" id="moon-rise">Moonrise : 07:00 a.m</p>
+                        <p class="ms-5" id="moon-set">Moonset : 19:00 p.m
+                        <p>
+                    </div>
                 </div>
             </div>
 
@@ -125,62 +159,62 @@
         </div>
         <div class="row">
 
-            <div class="col col-lg-6">
-                <div style="min-width: 250px;" id="card-forcast">
+            <div class="col col-lg-6 mb-3">
+                <div class="card-main-2">
 
                     <div class="card-body text-center">
                         <div class="card-title fs-4"> Forcast Weather</div>
 
-                        <div class="d-flex justify-content-around mt-3">
-                            <h6>Day 01 </h6>
-                            <h6>20 - 40 °C</h6>
+                        <div class="d-flex justify-content-around mt-2">
+                            <h6 class="forcast-day">Day 01 </h6>
+                            <h6 class="forcast-temp">20 - 40 °C</h6>
                             <img src="https://cdn3.iconfinder.com/data/icons/weather-ios-11-1/50/Partly_Cloudy_Cloudy_Sun_Cloud_Nebulosity_Apple_Weather-1024.png"
-                                alt="" class="float-start" id="main-card-temp-img" style="max-width: 50px;">
+                                alt="" class="float-start forcast-img">
 
                         </div>
                         <hr>
 
-                        <div class="d-flex justify-content-around mt-3">
-                            <h6>Day 02 </h6>
-                            <h6>20 - 40 °C</h6>
+                        <div class="d-flex justify-content-around mt-1">
+                            <h6 class="forcast-day">Day 02 </h6>
+                            <h6 class="forcast-temp">20 - 40 °C</h6>
                             <img src="https://cdn3.iconfinder.com/data/icons/weather-ios-11-1/50/Partly_Cloudy_Cloudy_Sun_Cloud_Nebulosity_Apple_Weather-1024.png"
-                                alt="" class="float-start" id="main-card-temp-img" style="max-width: 50px;">
+                                alt="" class="float-start forcast-img">
 
                         </div>
                         <hr>
 
-                        <div class="d-flex justify-content-around mt-3">
-                            <h6>Day 03 </h6>
-                            <h6>20 - 40 °C</h6>
+                        <div class="d-flex justify-content-around mt-1">
+                            <h6 class="forcast-day">Day 03 </h6>
+                            <h6 class="forcast-temp">20 - 40 °C</h6>
                             <img src="https://cdn3.iconfinder.com/data/icons/weather-ios-11-1/50/Partly_Cloudy_Cloudy_Sun_Cloud_Nebulosity_Apple_Weather-1024.png"
-                                alt="" class="float-start" id="main-card-temp-img" style="max-width: 50px;">
+                                alt="" class="float-start forcast-img">
 
                         </div>
                         <hr>
 
-                        <div class="d-flex justify-content-around mt-3">
-                            <h6>Day 04 </h6>
-                            <h6>20 - 40 °C</h6>
+                        <div class="d-flex justify-content-around mt-1">
+                            <h6 class="forcast-day">Day 04 </h6>
+                            <h6 class="forcast-temp">20 - 40 °C</h6>
                             <img src="https://cdn3.iconfinder.com/data/icons/weather-ios-11-1/50/Partly_Cloudy_Cloudy_Sun_Cloud_Nebulosity_Apple_Weather-1024.png"
-                                alt="" class="float-start" id="main-card-temp-img" style="max-width: 50px;">
+                                alt="" class="float-start forcast-img">
 
                         </div>
                         <hr>
 
-                        <div class="d-flex justify-content-around mt-3">
-                            <h6>Day 05 </h6>
-                            <h6>20 - 40 °C</h6>
+                        <div class="d-flex justify-content-around mt-1">
+                            <h6 class="forcast-day">Day 05 </h6>
+                            <h6 class="forcast-temp">20 - 40 °C</h6>
                             <img src="https://cdn3.iconfinder.com/data/icons/weather-ios-11-1/50/Partly_Cloudy_Cloudy_Sun_Cloud_Nebulosity_Apple_Weather-1024.png"
-                                alt="" class="float-start" id="main-card-temp-img" style="max-width: 50px;">
+                                alt="" class="float-start forcast-img">
 
                         </div>
                         <hr>
 
-                        <div class="d-flex justify-content-around mt-3">
-                            <h6>Day 06 </h6>
-                            <h6>20 - 40 °C</h6>
+                        <div class="d-flex justify-content-around mt-1">
+                            <h6 class="forcast-day">Day 06 </h6>
+                            <h6 class="forcast-temp">20 - 40 °C</h6>
                             <img src="https://cdn3.iconfinder.com/data/icons/weather-ios-11-1/50/Partly_Cloudy_Cloudy_Sun_Cloud_Nebulosity_Apple_Weather-1024.png"
-                                alt="" class="float-start" id="main-card-temp-img" style="max-width: 50px;">
+                                alt="" class="float-start forcast-img">
 
                         </div>
                         <hr>
@@ -189,7 +223,71 @@
                 </div>
             </div>
 
+            <div class="col col-lg-6">
+                <div class="card-main-2">
+                    <div class="card-body text-center">
 
+                        <div class="card-title fs-4"> History Weather</div>
+
+                        <div class="d-flex justify-content-around mt-1">
+                            <h6 class="history-day">Day 01 </h6>
+                            <h6 class="history-temp">20 - 40 °C</h6>
+                            <img src="https://cdn3.iconfinder.com/data/icons/weather-ios-11-1/50/Partly_Cloudy_Cloudy_Sun_Cloud_Nebulosity_Apple_Weather-1024.png"
+                                alt="" class="float-start forcast-img">
+
+                        </div>
+                        <hr>
+
+                        <div class="d-flex justify-content-around mt-1">
+                            <h6 class="history-day">Day 02 </h6>
+                            <h6 class="history-temp">20 - 40 °C</h6>
+                            <img src="https://cdn3.iconfinder.com/data/icons/weather-ios-11-1/50/Partly_Cloudy_Cloudy_Sun_Cloud_Nebulosity_Apple_Weather-1024.png"
+                                alt="" class="float-start forcast-img">
+
+                        </div>
+                        <hr>
+
+                        <div class="d-flex justify-content-around mt-1">
+                            <h6 class="history-day">Day 03 </h6>
+                            <h6 class="history-temp">20 - 40 °C</h6>
+                            <img src="https://cdn3.iconfinder.com/data/icons/weather-ios-11-1/50/Partly_Cloudy_Cloudy_Sun_Cloud_Nebulosity_Apple_Weather-1024.png"
+                                alt="" class="float-start forcast-img">
+
+                        </div>
+                        <hr>
+
+                        <div class="d-flex justify-content-around mt-1">
+                            <h6 class="history-day">Day 04 </h6>
+                            <h6 class="history-temp">20 - 40 °C</h6>
+                            <img src="https://cdn3.iconfinder.com/data/icons/weather-ios-11-1/50/Partly_Cloudy_Cloudy_Sun_Cloud_Nebulosity_Apple_Weather-1024.png"
+                                alt="" class="float-start forcast-img">
+
+                        </div>
+                        <hr>
+
+                        <div class="d-flex justify-content-around mt-1">
+                            <h6 class="history-day">Day 05 </h6>
+                            <h6 class="history-temp">20 - 40 °C</h6>
+                            <img src="https://cdn3.iconfinder.com/data/icons/weather-ios-11-1/50/Partly_Cloudy_Cloudy_Sun_Cloud_Nebulosity_Apple_Weather-1024.png"
+                                alt="" class="float-start forcast-img">
+
+                        </div>
+                        <hr>
+
+                        <div class="d-flex justify-content-around mt-1">
+                            <h6 class="history-day">Day 06 </h6>
+                            <h6 class="history-temp">20 - 40 °C</h6>
+                            <img src="https://cdn3.iconfinder.com/data/icons/weather-ios-11-1/50/Partly_Cloudy_Cloudy_Sun_Cloud_Nebulosity_Apple_Weather-1024.png"
+                                alt="" class="float-start forcast-img">
+
+                        </div>
+                        <hr>
+
+                    </div>
+
+                </div>
+
+            </div>
 
         </div>
 
@@ -198,8 +296,23 @@
 
     </div>
     </div>
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 mt-5">
+        <div class="col-md-4 d-flex align-items-center">
+            <a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
+                <img src="https://brandlogos.net/wp-content/uploads/2021/09/bootstrap-logo.png" alt="Logo" width="40px"
+                    class="d-inline-block align-text-top">
+
+            </a>
+            <span class="mb-3 mb-md-0 text-white ">&copy; 2024 ICET</span>
+        </div>
+
+    </footer>
 
     <script src="asset/app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
 </body>
 
 </html>
