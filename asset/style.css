@@ -8,7 +8,7 @@ body {
 
 #main-card {
     border: 1px solid rgba(16, 13, 13, 0.25);
-    border-radius: 20px;
+    border-radius: 5px;
     background-color: rgba(218, 203, 203, 0.45);
     box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
 
@@ -27,24 +27,13 @@ body {
 }
 
 
-.mini{
-    border: 1px solid rgba(16, 13, 13, 0.25);
-    border-radius: 20px;
-    background-color: rgba(96, 91, 91, 0.45);
-    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
-    backdrop-filter: blur(15px);
-
-    
-    color: white;
-}
-
 #title-forcast{
     color: white;
 }
 
 .card-main-2{
     border: 1px solid rgba(16, 13, 13, 0.25);
-    border-radius: 20px;
+    border-radius: 5px;
     background-color: rgba(218, 203, 203, 0.45);
     box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
     backdrop-filter: blur(15px);
@@ -58,7 +47,7 @@ body {
 
 .sub-card{
 	border: 1px solid rgba(16, 13, 13, 0.25);
-    border-radius: 20px;
+    border-radius: 5px;
     background-color: rgba(218, 203, 203, 0.45);
     box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
     backdrop-filter: blur(15px);
