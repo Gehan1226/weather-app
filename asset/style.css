@@ -2,7 +2,7 @@ body {
     /* background: linear-gradient(115deg, #1d58d7, #000000); */
     color: #224;
     background:
-        url(https://th.bing.com/th/id/R.0bee785a42c7c4a641a4fa840f051fcb?rik=pa7dR%2faTDaZyFw&riu=http%3a%2f%2fwww.baltana.com%2ffiles%2fwallpapers-25%2fNature-Minimalist-Wallpaper-1920x1080-64724.jpg&ehk=C4jv4bXKpYsTpqqx3NoPKvh1J3wCs8cStTotrJwcjgg%3d&risl=&pid=ImgRaw&r=0) center / cover no-repeat fixed;
+        url(../asset/images/background-img.jpg) center / cover no-repeat fixed;
 
 }
 
