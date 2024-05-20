@@ -1,3 +1,6 @@
+const overlay = document.querySelector(".overlay");
+const anm = document.getElementById("loading");
+
 let date_obj = new Date();
 let monthName = date_obj.toLocaleString("default", { month: "long" });
 let current_date = date_obj.getDate() + " / " + monthName + " / " + date_obj.getFullYear();
@@ -10,8 +13,10 @@ let current_humidity;
 
 findCurrentWeather();
 
-function findCurrentWeather() {
-  
+async function findCurrentWeather() {
+
+  overlay.style.display = "block";
+  anm.style.display = "block";
 
   let location = document.getElementById("txt-location").value;
   if (location == "") {
@@ -19,7 +24,7 @@ function findCurrentWeather() {
   }
   document.getElementById("txt-location").value = "";
 
-  fetch("https://api.weatherapi.com/v1/forecast.json?key=9f2a2a57edc4446087b63913241204&q=" + location + "&days=7&aqi=no&alerts=no")
+  await fetch("https://api.weatherapi.com/v1/forecast.json?key=9f2a2a57edc4446087b63913241204&q=" + location + "&days=7&aqi=no&alerts=no")
     .then((res) => res.json())
     .then((values) => {
 
@@ -56,22 +61,33 @@ function findCurrentWeather() {
       let image = document.getElementById("main-card-temp-img");
       image.src = temp_image;
 
-      c_values[0]=values.current.temp_c;
-      c_values[1]=values.current.feelslike_c;
-      f_values[0]=values.current.temp_f;
-      f_values[1]=values.current.feelslike_f;
+      c_values[0] = values.current.temp_c;
+      c_values[1] = values.current.feelslike_c;
+      f_values[0] = values.current.temp_f;
+      f_values[1] = values.current.feelslike_f;
 
 
       let current_latitude = values.location.lat;
       let current_longtitude = values.location.lon;
       getAllWeather(current_latitude, current_longtitude)
 
-
+      overlay.style.display = "none";
+      anm.style.display = "none";
     })
+    .catch(error => {
+      {
+        alert("Cant find Location");
+        location = "colombo";
+      }
+    })
+    .finally(() => {
+      let mapUrl = `https://maps.google.com/maps?q=${encodeURIComponent(location)}&output=embed`;
+      let iframe = document.getElementById('myMap');
+      iframe.src = mapUrl;
 
-  let mapUrl = `https://maps.google.com/maps?q=${encodeURIComponent(location)}&output=embed`;
-  let iframe = document.getElementById('myMap');
-  iframe.src = mapUrl;
+      overlay.style.display = "none";
+      anm.style.display = "none";
+    });
 
 
 }
@@ -113,10 +129,10 @@ function getAllWeather(current_latitude, current_longtitude) {
   fetch("https://api.open-meteo.com/v1/forecast?latitude=" + current_latitude + "&longitude=" + current_longtitude + "&daily=weather_code,temperature_2m_max,temperature_2m_min&past_days=7")
     .then((res) => res.json())
     .then((values) => {
-      
+
       for (let i = 0; i < 14; i++) {
         all_weathers_max_c[i] = values.daily.temperature_2m_max[i];
-        all_weathers_min_c[i] =values.daily.temperature_2m_min[i];
+        all_weathers_min_c[i] = values.daily.temperature_2m_min[i];
       }
 
       let day_names = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
@@ -178,18 +194,18 @@ function setHistoryInFeranheit() {
 }
 
 
-function allToFahrenheit(){
-  document.getElementById("current-temp").innerHTML = f_values[0]+" °F";
-  document.getElementById("feels-like").innerHTML =  "🌡️ Feels like - " +f_values[1]+"°F";
-  document.getElementById("card2-fl").innerHTML =   "Feels Like : " + f_values[1] + "°F";
+function allToFahrenheit() {
+  document.getElementById("current-temp").innerHTML = f_values[0] + " °F";
+  document.getElementById("feels-like").innerHTML = "🌡️ Feels like - " + f_values[1] + "°F";
+  document.getElementById("card2-fl").innerHTML = "Feels Like : " + f_values[1] + "°F";
   setForcastInFeranheit();
   setHistoryInFeranheit();
 }
 
-function allToCelsius(){
-  document.getElementById("current-temp").innerHTML = c_values[0]+" °C";
-  document.getElementById("feels-like").innerHTML =  "🌡️ Feels like - " +c_values[1]+"°c";
-  document.getElementById("card2-fl").innerHTML =   "Feels Like : " + c_values[1] + "°C";
+function allToCelsius() {
+  document.getElementById("current-temp").innerHTML = c_values[0] + " °C";
+  document.getElementById("feels-like").innerHTML = "🌡️ Feels like - " + c_values[1] + "°c";
+  document.getElementById("card2-fl").innerHTML = "Feels Like : " + c_values[1] + "°C";
   setForcastInCelcious();
   setHistoryInCelcious();
 

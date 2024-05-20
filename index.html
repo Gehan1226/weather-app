@@ -54,22 +54,31 @@
             </div>
         </div>
     </nav>
-    <div class="container" >
-        <div class="row mt-5" >
+    <div class="container">
 
-            <div class="col col-md-12 col-lg-6 col-sm-12 mx-auto mb-5" >
+        <div class="overlay">
 
-                <div style="min-width: 250px;" id="main-card" data-aos="fade-right">
+            <div id="loading" class=" loader mx-auto mt-5"></div>
+            <h2 id="text-load" class="text-center "> Searching ...</h2>
+
+        </div>
+
+        <div class="row mt-5">
+
+            <div class="col col-md-12 col-lg-6 col-sm-12 mx-auto mb-5">
+
+                <div style="min-width: 250px;" id="main-card" data-aos="zoom-in-right">
 
                     <div class="card-body">
 
-                        <div class="d-flex mb-3" >
+                        <div class="d-flex mb-3">
                             <h5 class="card-title mt-2" id="location-name">Location</h5>
                             <div class="ms-auto p-2" id="current-date">Date</div>
                         </div>
 
-                        <div class="d-flex align-content-between flex-wrap"><img src="https://cdn2.iconfinder.com/data/icons/weather-flat-14/64/weather02-1024.png" alt="" class="float-start"
-                                id="main-card-temp-img" >
+                        <div class="d-flex align-content-between flex-wrap"><img
+                                src="https://cdn2.iconfinder.com/data/icons/weather-flat-14/64/weather02-1024.png"
+                                alt="" class="float-start" id="main-card-temp-img">
                             <p class="display-5 my-3 ms-2 " id="current-temp">20°C</p>
                         </div>
                         <p class="fs-4 " id="temp-status">partly cloud</p>
@@ -85,7 +94,7 @@
 
             </div>
 
-            <div class="col col-lg-6 col-sm-12 col-md-12 text-center">
+            <div class="col col-lg-6 col-sm-12 col-md-12 text-center" data-aos="zoom-in-right">
                 <iframe id="myMap" frameborder="0" style="border:0;"></iframe>
             </div>
 
@@ -94,7 +103,7 @@
         <div class="row mt-3">
 
             <div class="col col-sm-12 col-lg-3 mb-3">
-                <div class="sub-card" data-aos="fade-right">
+                <div class="sub-card" data-aos="fade-up">
                     <div class="card-body text-center ">
                         <div class="block mx-auto">
                             <div class="box">
@@ -126,7 +135,7 @@
             </div>
 
             <div class="col col-sm-12 col-lg-3 mb-3">
-                <div class="sub-card" data-aos="fade-right">
+                <div class="sub-card" data-aos="fade-up">
                     <div class="card-body text-center">
                         <img src="asset/images/wind-turbine-ezgif.com-gif-maker.gif" width="150px" alt="" srcset="">
                         <h6 id="card3-wind-speed">Wind Speed : 5.6 kph</h6>
@@ -138,7 +147,7 @@
             </div>
 
             <div class="col col-sm-12 col-lg-6 mb-3">
-                <div class="sub-card" data-aos="fade-left">
+                <div class="sub-card" data-aos="fade-up">
                     <div class="d-flex justify-content-around mt-5">
                         <img class="img-sun" src="asset/images/sun-shine-bg.png" alt="" srcset="">
                         <img class="img-sun" src="asset/images/sun-rise.png" alt="" srcset="">
@@ -161,7 +170,7 @@
         <div class="row">
 
             <div class="col col-lg-6 mb-3">
-                <div class="card-main-2" data-aos="fade-right">
+                <div class="card-main-2" data-aos="zoom-in">
 
                     <div class="card-body text-center">
                         <div class="card-title fs-4"> Forcast Weather</div>
@@ -225,7 +234,7 @@
             </div>
 
             <div class="col col-lg-6">
-                <div class="card-main-2" data-aos="fade-left">
+                <div class="card-main-2" data-aos="zoom-in">
                     <div class="card-body text-center">
 
                         <div class="card-title fs-4"> History Weather</div>
@@ -315,8 +324,10 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
     <script>
-        AOS.init();
-      </script>
+        AOS.init({
+            duration: 1000
+        });
+    </script>
 
 
 </body>
